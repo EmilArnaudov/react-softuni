@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Paragraph from './components/Paragraph';
+import TextInput from './components/TextInput';
+import UnorderedList from './components/UnorderedList';
 
 function App() {
+  let [text, setText] = useState('');
+  let [items, setItems] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Hello, world!</h1>
+      <TextInput 
+        onClickHandlerAddItem={(e) => {
+          e.preventDefault();
+          let newItems = items.slice();
+          newItems.push(e.target['0'].value);
+          setItems(newItems);
+        }} 
+        onChangeHandler={(e) => {setText(e.target.value)}}
+      />
+      <Paragraph value={text} ></Paragraph>
+      <UnorderedList items={items}/>
+    </>
   );
 }
 
