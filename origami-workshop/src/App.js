@@ -1,8 +1,15 @@
 import './App.css';
+import Navigation from './components/navigation/Navigation';
+import SearchMovie from './components/search-movie/SearchMovie';
+import Gallery from './components/gallery/Gallery'
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <>
+      <Navigation></Navigation>
+      <SearchMovie></SearchMovie>
+      <Gallery></Gallery>
+    </>
   );
 }
 

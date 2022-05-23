@@ -1,0 +1,47 @@
+.inputBar {
+    padding: 12px 26px 12px 12px;
+    border: none;
+}
+
+.inputBar:focus {
+    border: none;
+    outline: none;
+}
+
+.formStyle {
+    text-align: center;
+}
+
+.inputContainer {
+    display: flex;
+}
+
+.selectButton {
+    height: 40px;
+    border: none;
+    border-right: 1px solid lightgray;
+    padding: 0 12px;
+}
+
+.selectOption {
+    letter-spacing: 1px;
+    
+}
+
+
+.searchButton {
+    padding: 8px 12px;
+    color: black;
+    background-color: white;
+    height: 40px;
+    border: none;
+    border-left: 1px solid lightgray;
+    transition: background-color 300ms ease-in;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: rgb(246, 246, 246);
+}

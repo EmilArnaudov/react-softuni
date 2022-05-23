@@ -1,0 +1,10 @@
+.navBar {
+    text-align: center;
+    background-color: black;
+}
+
+.navBarLogo {
+    text-decoration: none;
+    color: white;
+    font-size: 36px;
+}
