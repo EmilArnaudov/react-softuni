@@ -1,13 +1,13 @@
 import styles from './Gallery.module.css'
 import MovieCard from "../movie-card/MovieCard"
 
-export default function Gallery() {
+export default function Gallery(
+    {movies}
+) {
     return (
         <>
             <ul className={styles.galleryList}>
-                <li><MovieCard></MovieCard></li>
-                <li><MovieCard></MovieCard></li>
-                <li><MovieCard></MovieCard></li>
+                {movies.map(movie => <MovieCard key={Date.now() + Math.random()} movie={movie}></MovieCard>)}
             </ul>
         </>
     )

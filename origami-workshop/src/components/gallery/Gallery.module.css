@@ -3,4 +3,5 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 30px;
     list-style-type: none;
+    padding: 0 36px;
 }
