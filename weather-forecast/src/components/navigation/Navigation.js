@@ -1,14 +1,16 @@
+import styles from './Navigation.module.css'
+
 export default function Navigation() {
     return (
-        <ul>
+        <ul className={styles.ul}>
             <li>
-                <a href="">Dashboard</a>
+                <a className={styles.navItem} href=""><i class="fa-solid fa-table-columns"></i>Dashboard</a>
             </li>
             <li>
-                <a href="">Saved Location</a>
+                <a className={styles.navItem} href=""><i class="fa-solid fa-heart"></i>Saved Location</a>
             </li>
             <li>
-                <a href="">Calendar</a>
+                <a className={styles.navItem} href=""><i class="fa-solid fa-calendar-days"></i>Calendar</a>
             </li>
         </ul>
     )
