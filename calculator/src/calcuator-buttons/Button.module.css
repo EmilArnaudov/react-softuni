@@ -2,4 +2,10 @@
     background-color: lightgray;
     border: none;
     border: 1px solid gray;
+    cursor: pointer;
+    transition: background-color 300ms ease-in;
+}
+
+.calcButton:hover {
+    background-color: rgb(255, 255, 152);
 }
