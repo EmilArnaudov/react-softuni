@@ -9,12 +9,12 @@
 }
 
 .navItem:hover {
-    color: rgb(132, 132, 255);
+    color: #2374ab;
     font-size: 18.5px;
 }
 
 .active {
-    color: rgb(132, 132, 255);
+    color: #2374ab;
 }
 
 .ul {
@@ -26,9 +26,19 @@
 }
 
 .li {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .icon {
     margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.dot {
+    color: #2374ab;
+    font-size: 12px;
 }

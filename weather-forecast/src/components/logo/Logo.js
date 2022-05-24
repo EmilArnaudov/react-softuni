@@ -4,6 +4,6 @@ export default function Logo({
 
 }) {
     return (
-        <a className={styles.logo} href=""><span className={styles.fore}>Fore</span>Weather</a>
+        <a className={styles.logo} href=""><span className={styles.fore}>Fore<i class="fa-solid fa-sun"></i></span>Weather</a>
     )
 }
