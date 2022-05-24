@@ -5,7 +5,7 @@
     border-radius: 16px;
     padding: 24px;
     display: flex;
-    flex-direction: column;
+    gap: 24px;
 }
 
 .placeAndTime {
@@ -62,4 +62,45 @@
 
 .value {
     margin-left: 8px;
+}
+
+.rightSide {
+    width: 50%;
+    height: 100%;
+    padding: 24px;
+    background-color: #ddeeff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rightSideHeading {
+    color: #3a71a8;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.partDayDegrees {
+    display: flex;
+    justify-content: space-around;
+    color: #6290be;
+}
+
+.partDay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 14px;
+}
+
+.partDayPart {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.partDayDegrees {
+    font-size: 18px;
+    font-weight: 600;
 }

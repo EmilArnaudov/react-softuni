@@ -20,6 +20,29 @@ export default function WeatherDetailsLarge() {
                 </div>
             </div>
 
+            <div className={styles.rightSide}>
+                <p className={styles.rightSideHeading}>Temperature</p>
+
+                <div className={styles.partDayDegrees}>
+                    <div className={styles.partDay}>
+                        <p className={styles.partDayPart}>Morning</p>
+                        <p className={styles.partDayDegrees}>15&#176;</p>
+                    </div>
+                    <div className={styles.partDay}>
+                        <p className={styles.partDayPart}>Morning</p>
+                        <p className={styles.partDayDegrees}>15&#176;</p>
+                    </div>
+                    <div className={styles.partDay}>
+                        <p className={styles.partDayPart}>Morning</p>
+                        <p className={styles.partDayDegrees}>15&#176;</p>
+                    </div>
+                    <div className={styles.partDay}>
+                        <p className={styles.partDayPart}>Morning</p>
+                        <p className={styles.partDayDegrees}>15&#176;</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
