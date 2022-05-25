@@ -6,16 +6,16 @@ export default function Navigation() {
     return (
         <ul className={styles.ul}>
             <li className={styles.li}>
-                <a className={selected.join(' ')} href=""><i class="fa-solid fa-table-columns"></i>Dashboard</a>
+                <a className={selected.join(' ')} href=""><i className="fa-solid fa-table-columns"></i>Dashboard</a>
                 <div >
                     <i className={selectedDotClass.join(' ')}></i>
                 </div>
             </li>
             <li>
-                <a className={styles.navItem} href=""><i class="fa-solid fa-heart"></i>Saved Location</a>
+                <a className={styles.navItem} href=""><i className="fa-solid fa-heart"></i>Saved Location</a>
             </li>
             <li>
-                <a className={styles.navItem} href=""><i class="fa-solid fa-calendar-days"></i>Calendar</a>
+                <a className={styles.navItem} href=""><i className="fa-solid fa-calendar-days"></i>Calendar</a>
             </li>
         </ul>
     )
