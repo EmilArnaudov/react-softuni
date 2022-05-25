@@ -6,11 +6,11 @@ import getTime from './helpers/getTime';
 
 import Geocode from 'react-geocode';
 import {useEffect, useState} from 'react';
-import fetchForecast from './services/weatherService';
+import {fetchForecast, fetchWeather} from './services/weatherService';
 
 function App() {
   let [time, setTime] = useState('');
-  let [forecast, setForecast] = useState('');
+  let [weather, setWeather] = useState({});
 
   useEffect(() => {
     setInterval(() => {
@@ -42,8 +42,11 @@ function App() {
               }
             }
           }
-          let cityForecast = await fetchForecast(city);
-          setForecast(cityForecast);
+          fetchWeather(city)
+            .then((cityWeather) => {
+              setWeather(cityWeather);
+            });
+
         },
         (error) => {
           console.error(error);
@@ -55,7 +58,7 @@ function App() {
   return (
     <div className="container">
         <Aside></Aside>
-        <Main forecast={forecast} time={time}></Main>
+        <Main weather={weather} time={time}></Main>
         <RightAside></RightAside>
     </div>
   );

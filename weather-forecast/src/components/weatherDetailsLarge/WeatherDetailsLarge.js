@@ -2,19 +2,22 @@ import styles from './WeatherDetailsLarge.module.css';
 
 export default function WeatherDetailsLarge({
     time,
-    forecast,
+    weather,
 }) {
-    console.log(forecast);
+    if (Object.keys(weather).length === 0) {
+        return;
+    }
+    console.log(weather);
     return (
         <div className={styles.container}>
             <div className={styles.leftSide}>
                  <div className={styles.placeAndTime}>
-                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{forecast.city.name}</span></span>
+                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{weather.name}</span></span>
                     <span className={styles.time}>Today {time}</span>
                 </div>
 
                 <div className={styles.degreesMain}>
-                    <p className={styles.degrees}>14&#176;</p>
+                    <p className={styles.degrees}>{Math.round(Number(weather.main.temp))}&#176;</p>
                     <p className={styles.subheading}>Mostly Clear</p>
                 </div>
                 <div className={styles.secondaryDetails}>
