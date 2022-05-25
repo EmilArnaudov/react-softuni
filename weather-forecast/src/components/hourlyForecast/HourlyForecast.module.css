@@ -1,0 +1,37 @@
+.container {
+    margin-bottom: 36px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.hour {
+    width: 20%;
+    text-align: center;
+}
+
+.hoursDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.timeOfDay {
+    color: #6e6d79;
+}
+
+.degrees {
+    color: #6e6d79;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.selectedDay {
+    color: #6e6d79;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 18px;
+}
