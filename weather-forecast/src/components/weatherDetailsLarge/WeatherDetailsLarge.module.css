@@ -18,6 +18,8 @@
     font-size: 22px;
     color: #24609b;
     font-weight: 600;
+    display: flex;
+    gap: 8px;
 }
 
 .time {

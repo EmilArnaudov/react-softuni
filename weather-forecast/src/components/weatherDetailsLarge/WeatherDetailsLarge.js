@@ -1,12 +1,16 @@
 import styles from './WeatherDetailsLarge.module.css';
 
-export default function WeatherDetailsLarge() {
+export default function WeatherDetailsLarge({
+    time,
+    forecast,
+}) {
+    console.log(forecast);
     return (
         <div className={styles.container}>
             <div className={styles.leftSide}>
                  <div className={styles.placeAndTime}>
-                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i> New York</span>
-                    <span className={styles.time}>Today 00:32 PM</span>
+                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{forecast.city.name}</span></span>
+                    <span className={styles.time}>Today {time}</span>
                 </div>
 
                 <div className={styles.degreesMain}>
