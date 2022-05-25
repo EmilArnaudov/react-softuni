@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.secondary {
+    background-color: #ecf3f8;
+    padding: 24px;
+    width: calc(50% - 24px);
+    border-radius: 16px;
+    height: 140px;
+    display: flex;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.secondaryTitle {
+    color: #282a2a;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.secondaryDescription {
+    color: gray;
+    font-size: 14px;
+}
+
+.secondaryUnits {
+    color: #282a2a;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.secondaryLeftSide {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.secondaryRightSide {
+    width: 50%;
+}
