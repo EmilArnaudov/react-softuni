@@ -3,11 +3,13 @@ import WeekToggle from '../weekToggle/WeekToggle'
 import HourlyForecast from '../hourlyForecast/HourlyForecast'
 import WeeklyForecast from '../weeklyForecast/WeeklyForecast'
 
-export default function RightAside() {
+export default function RightAside({
+    forecast
+}) {
     return (
         <div className={styles.container} >
             <WeekToggle></WeekToggle>
-            <HourlyForecast></HourlyForecast>
+            <HourlyForecast forecast={forecast}></HourlyForecast>
             <WeeklyForecast></WeeklyForecast>
         </div>
     )

@@ -1,13 +1,29 @@
 import styles from './WeatherDetailsLarge.module.css';
+import getTime from '../../helpers/getTime';
+import getIconLink from '../../helpers/getIconLink';
+
+import {useEffect, useState} from 'react';
 
 export default function WeatherDetailsLarge({
-    time,
     weather,
 }) {
+    let [time, setTime] = useState()
+
+    useEffect(() => {
+        console.log('settin Time');
+        setTime(getTime());
+        setInterval(() => {
+            console.log('settin Time');
+            setTime(getTime());
+        }, 60000);
+      }, [])
+
     if (Object.keys(weather).length === 0) {
         return;
     }
-    console.log(weather);
+
+    let windSpeed = Math.round(Number(weather.wind.speed)) * 3.6
+
     return (
         <div className={styles.container}>
             <div className={styles.leftSide}>
@@ -18,34 +34,34 @@ export default function WeatherDetailsLarge({
 
                 <div className={styles.degreesMain}>
                     <p className={styles.degrees}>{Math.round(Number(weather.main.temp))}&#176;</p>
-                    <p className={styles.subheading}>Mostly Clear</p>
+                    <p className={styles.subheading}>{weather.weather[0].description}</p>
                 </div>
                 <div className={styles.secondaryDetails}>
-                    <span className={styles.pressure}><i class="fa-solid fa-wind"></i><span className={styles.value}>720hpa</span></span>
-                    <span className={styles.humidity}><i class="fa-solid fa-droplet"></i><span className={styles.value}>32%</span></span>
-                    <span className={styles.wind}><i class="fa-solid fa-wind"></i><span className={styles.value}>13km/h</span></span>
+                    <span className={styles.pressure}><i class="fa-solid fa-wind"></i><span className={styles.value}>{weather.main.pressure}hpa</span></span>
+                    <span className={styles.humidity}><i class="fa-solid fa-droplet"></i><span className={styles.value}>{weather.main.humidity}%</span></span>
+                    <span className={styles.wind}><i class="fa-solid fa-wind"></i><span className={styles.value}>{windSpeed}km/h</span></span>
                 </div>
             </div>
 
             <div className={styles.rightSide}>
                 <p className={styles.rightSideHeading}>Temperature</p>
 
+                <div className={styles.iconContainer}>
+                    <img src={getIconLink(weather.weather[0].icon)} alt="" />
+                </div>
+
                 <div className={styles.partDayDegrees}>
                     <div className={styles.partDay}>
-                        <p className={styles.partDayPart}>Morning</p>
-                        <p className={styles.partDayDegrees}>15&#176;</p>
+                        <p className={styles.partDayPart}>Min Temp</p>
+                        <p className={styles.partDayDegrees}>{Math.round(Number(weather.main.temp_min))}&#176;</p>
                     </div>
                     <div className={styles.partDay}>
-                        <p className={styles.partDayPart}>Morning</p>
-                        <p className={styles.partDayDegrees}>15&#176;</p>
+                        <p className={styles.partDayPart}>Max Temp</p>
+                        <p className={styles.partDayDegrees}>{Math.round(Number(weather.main.temp_max))}&#176;</p>
                     </div>
                     <div className={styles.partDay}>
-                        <p className={styles.partDayPart}>Morning</p>
-                        <p className={styles.partDayDegrees}>15&#176;</p>
-                    </div>
-                    <div className={styles.partDay}>
-                        <p className={styles.partDayPart}>Morning</p>
-                        <p className={styles.partDayDegrees}>15&#176;</p>
+                        <p className={styles.partDayPart}>Feels Like</p>
+                        <p className={styles.partDayDegrees}>{Math.round(Number(weather.main.feels_like))}&#176;</p>
                     </div>
                 </div>
             </div>
