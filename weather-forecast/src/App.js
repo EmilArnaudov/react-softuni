@@ -30,12 +30,21 @@ function App() {
     })
   }, [])
 
+  async function searchCityHandler(lat, lng) {
+      let city = await getCityName(lat, lng);
+      setCity(city);
+      fetchForecast(city)
+        .then(forecast => {
+          setForecast(forecast);
+        })
+  }
+
   return (
     <div className="container">
       <Router>
         <Aside></Aside>
         <Routes>
-          <Route path='/' element={<Main forecast={forecast}></Main>}></Route>
+          <Route path='/' element={<Main forecast={forecast} searchCityHandler={searchCityHandler}></Main>}></Route>
           <Route path='/calendar' element={<Calendar></Calendar>}></Route>
           <Route path='/saved' element={<Saved></Saved>}></Route>
         </Routes>

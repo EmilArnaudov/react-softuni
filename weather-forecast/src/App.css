@@ -2,3 +2,7 @@
     display: flex;
     height: 100vh;
 }
+
+.active {
+    color: #2374ab;
+}

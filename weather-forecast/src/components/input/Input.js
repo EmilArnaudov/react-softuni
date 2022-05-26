@@ -1,13 +1,29 @@
-import styles from './Input.module.css';
+import { useState } from 'react';
 
-export default function Input() {
+import styles from './Input.module.css';
+import { GOOGLE_API_KEY } from '../../constants/constants';
+import Autocomplete from "react-google-autocomplete";
+
+export default function Input({
+    searchCityHandler
+}) {
 
     let iconClasses = ['fa-solid', 'fa-magnifying-glass', styles.icon]
 
     return (
         <>
+
         <i className={iconClasses.join(' ')}></i>
-        <input className={styles.input} type="text" placeholder="Search for a place.." />
+        <Autocomplete
+            className={styles.input}
+            apiKey={GOOGLE_API_KEY}
+            onPlaceSelected={(place) => {
+
+                    let lat = place.geometry.location.lat()
+                    let lng = place.geometry.location.lng()
+                    searchCityHandler(lat, lng);
+
+        }}/>
 
         </>
     )

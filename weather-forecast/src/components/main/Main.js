@@ -5,10 +5,11 @@ import WeatherDetailsSecondary from '../weatherDetailsSecondary/WeatherDetailsSe
 
 export default function Main({
     forecast,
+    searchCityHandler,
 }) {
     return (
         <div className={styles.main}>
-            <Input></Input>
+            <Input searchCityHandler={searchCityHandler} ></Input>
             <WeatherDetailsLarge forecast={forecast}></WeatherDetailsLarge>
             <WeatherDetailsSecondary forecast={forecast}></WeatherDetailsSecondary>
         </div>

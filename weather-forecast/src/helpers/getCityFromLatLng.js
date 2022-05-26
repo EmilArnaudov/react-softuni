@@ -1,8 +1,9 @@
 import Geocode from 'react-geocode';
+import { GOOGLE_API_KEY } from '../constants/constants';
 
 export default async function getCityName(lat, lng) {
     console.log('getting weather info');
-    Geocode.setApiKey('AIzaSyBPM8RiSajTY8XekfkFNbLMzQ3wwJENolo');
+    Geocode.setApiKey(GOOGLE_API_KEY);
     Geocode.setLocationType("ROOFTOP");
 
     let response = await Geocode.fromLatLng(lat, lng);

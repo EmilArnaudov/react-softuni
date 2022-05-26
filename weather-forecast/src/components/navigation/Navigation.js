@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styles from './Navigation.module.css'
 
 export default function Navigation() {
@@ -7,16 +7,25 @@ export default function Navigation() {
     return (
         <ul className={styles.ul}>
             <li className={styles.li}>
-                <Link to="/" className={selected.join(' ')} href=""><i className="fa-solid fa-table-columns"></i>Dashboard</Link>
+                <NavLink to="/" className={(props) => {
+                    return `${props.isActive ? selected.join(' ') : styles.navItem}`
+                }} href=""><i className="fa-solid fa-table-columns"></i>Dashboard</NavLink>
                 <div >
                     <i className={selectedDotClass.join(' ')}></i>
                 </div>
             </li>
             <li>
-                <Link to="/saved" className={styles.navItem} href=""><i className="fa-solid fa-heart"></i>Saved Location</Link>
+                <NavLink to="/saved" className={(props) => {
+                    return `${props.isActive ? selected.join(' ') : styles.navItem}`
+                }} href=""><i className="fa-solid fa-heart"></i>Saved Location</NavLink>
             </li>
             <li>
-                <Link to="/calendar" className={styles.navItem} href=""><i className="fa-solid fa-calendar-days"></i>Calendar</Link>
+                <NavLink to="/calendar" 
+                    className={(props) => { return `${props.isActive ? selected.join(' ') : styles.navItem}`}}
+                    href="">
+                    <i className="fa-solid fa-calendar-days"></i>
+                    Calendar
+                </NavLink>
             </li>
         </ul>
     )
