@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './Navigation.module.css'
 
 export default function Navigation() {
@@ -6,16 +7,16 @@ export default function Navigation() {
     return (
         <ul className={styles.ul}>
             <li className={styles.li}>
-                <a className={selected.join(' ')} href=""><i className="fa-solid fa-table-columns"></i>Dashboard</a>
+                <Link to="/" className={selected.join(' ')} href=""><i className="fa-solid fa-table-columns"></i>Dashboard</Link>
                 <div >
                     <i className={selectedDotClass.join(' ')}></i>
                 </div>
             </li>
             <li>
-                <a className={styles.navItem} href=""><i className="fa-solid fa-heart"></i>Saved Location</a>
+                <Link to="/saved" className={styles.navItem} href=""><i className="fa-solid fa-heart"></i>Saved Location</Link>
             </li>
             <li>
-                <a className={styles.navItem} href=""><i className="fa-solid fa-calendar-days"></i>Calendar</a>
+                <Link to="/calendar" className={styles.navItem} href=""><i className="fa-solid fa-calendar-days"></i>Calendar</Link>
             </li>
         </ul>
     )

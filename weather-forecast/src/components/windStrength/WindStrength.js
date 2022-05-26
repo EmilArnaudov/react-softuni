@@ -6,7 +6,7 @@ export default function WindStrength({
 
     return (
         <div className={styles.container}>
-            <span className={styles.text}>CALM</span>
+            <span className={styles.text}><i class="fa-solid fa-wind"></i></span>
         </div>
     )
 }

@@ -2,44 +2,46 @@ import './App.css';
 import Aside from './components/aside/Aside';
 import Main from './components/main/Main';
 import RightAside from './components/rightAside/RightAside';
-
-import {useEffect, useState} from 'react';
 import {fetchForecast, fetchWeather} from './services/weatherService';
 import getCityName from './helpers/getCityFromLatLng';
 
+
+import {useEffect, useState} from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Calendar from './components/calendar/Calendar';
+import Saved from './components/saved/Saved';
+
 function App() {
-  let [weather, setWeather] = useState({});
+  let [city, setCity] = useState('');
   let [forecast, setForecast] = useState({});
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (data) => {
       let city = await getCityName(data.coords.latitude, data.coords.longitude);
-      fetchWeather(city)
-        .then(weather => {
-          setWeather(weather);
+      setCity(city);
+      fetchForecast(city)
+        .then(forecast => {
+          setForecast(forecast);
 
           setInterval(() => {
-            setWeather(weather);
+            setForecast(forecast);
           }, 600000)
         })
     })
   }, [])
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(async (data) => {
-      let city = await getCityName(data.coords.latitude, data.coords.longitude);
-      fetchForecast(city)
-        .then(forecast => {
-          setForecast(forecast);
-        })
-    })
-  }, [weather])
-
   return (
     <div className="container">
+      <Router>
         <Aside></Aside>
-        <Main forecast={forecast}></Main>
+        <Routes>
+          <Route path='/' element={<Main forecast={forecast}></Main>}></Route>
+          <Route path='/calendar' element={<Calendar></Calendar>}></Route>
+          <Route path='/saved' element={<Saved></Saved>}></Route>
+        </Routes>
         <RightAside forecast={forecast}></RightAside>
+      </Router>
+        
     </div>
   );
 }

@@ -24,7 +24,6 @@ export default function WeatherDetailsSecondary({
                         <p className={styles.secondaryUnits}>{windSpeed}km/h</p>
                     </div>
                     <div className={styles.secondaryRightSide}>
-                        <WindStrength></WindStrength>
                     </div>
                 </div>
                 <div className={styles.secondary}>
