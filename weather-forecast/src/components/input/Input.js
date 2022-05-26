@@ -18,10 +18,10 @@ export default function Input({
             className={styles.input}
             apiKey={GOOGLE_API_KEY}
             onPlaceSelected={(place) => {
-
+                    let city = place.address_components[0].short_name
                     let lat = place.geometry.location.lat()
                     let lng = place.geometry.location.lng()
-                    searchCityHandler(lat, lng);
+                    searchCityHandler(lat, lng, city);
 
         }}/>
 

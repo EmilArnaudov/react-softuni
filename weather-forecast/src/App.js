@@ -30,13 +30,27 @@ function App() {
     })
   }, [])
 
-  async function searchCityHandler(lat, lng) {
-      let city = await getCityName(lat, lng);
+  async function searchCityHandler(lat, lng, citySearch) {
+      console.log(lat, lng);
+      let city;
+      //ADD TRY CATCH IF NO CITY FOUND RISK IT WITH GOOGLE ADDRESS
+      try {
+          city = await getCityName(lat, lng);
+      } catch (error) {
+          city = citySearch
+      }
+
       setCity(city);
-      fetchForecast(city)
+
+      try {
+        fetchForecast(city)
         .then(forecast => {
           setForecast(forecast);
         })
+      } catch (error) {
+        console.error(error);
+      }
+
   }
 
   return (
