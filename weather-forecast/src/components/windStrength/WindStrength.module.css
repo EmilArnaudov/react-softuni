@@ -1,0 +1,16 @@
+.container {
+    border-radius: 16px;
+    background-color: white;
+    color: black;
+    font-size: 22px;
+    position: relative;
+    height: 100%;
+}
+
+.text {
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

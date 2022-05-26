@@ -1,12 +1,15 @@
 import styles from './WeatherDetailsSecondary.module.css'
+import WindStrength from '../windStrength/WindStrength';
 
 export default function WeatherDetailsSecondary({
-    weather
+    forecast
 }) {
 
-    if (Object.keys(weather).length === 0) {
+    if (Object.keys(forecast).length === 0) {
         return;
     }
+
+    let weather = forecast.list[0];
 
     let windSpeed = Math.round(Number(weather.wind.speed)) * 3.6
 
@@ -21,13 +24,14 @@ export default function WeatherDetailsSecondary({
                         <p className={styles.secondaryUnits}>{windSpeed}km/h</p>
                     </div>
                     <div className={styles.secondaryRightSide}>
+                        <WindStrength></WindStrength>
                     </div>
                 </div>
                 <div className={styles.secondary}>
                     <div className={styles.secondaryLeftSide}>
                         <p className={styles.secondaryTitle}>Rain Chance</p>
                         <p className={styles.secondaryDescription}>Today rain chance</p>
-                        <p className={styles.secondaryUnits}>{Math.round(Math.random() * 100)}%</p>
+                        <p className={styles.secondaryUnits}>{Math.round(Number(weather.pop) * 100)}%</p>
                     </div>
                     <div className={styles.secondaryRightSide}>
                     </div>

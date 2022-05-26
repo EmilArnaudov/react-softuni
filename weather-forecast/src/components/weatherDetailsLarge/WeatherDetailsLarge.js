@@ -5,22 +5,22 @@ import getIconLink from '../../helpers/getIconLink';
 import {useEffect, useState} from 'react';
 
 export default function WeatherDetailsLarge({
-    weather,
+    forecast,
 }) {
     let [time, setTime] = useState()
 
     useEffect(() => {
-        console.log('settin Time');
         setTime(getTime());
         setInterval(() => {
-            console.log('settin Time');
             setTime(getTime());
         }, 60000);
       }, [])
 
-    if (Object.keys(weather).length === 0) {
+    if (Object.keys(forecast).length === 0) {
         return;
     }
+
+    let weather = forecast.list[0];
 
     let windSpeed = Math.round(Number(weather.wind.speed)) * 3.6
 
@@ -28,7 +28,7 @@ export default function WeatherDetailsLarge({
         <div className={styles.container}>
             <div className={styles.leftSide}>
                  <div className={styles.placeAndTime}>
-                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{weather.name}</span></span>
+                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{forecast.city.name}</span></span>
                     <span className={styles.time}>Today {time}</span>
                 </div>
 

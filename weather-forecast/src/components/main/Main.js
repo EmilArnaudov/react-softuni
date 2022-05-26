@@ -4,13 +4,13 @@ import WeatherDetailsLarge from '../weatherDetailsLarge/WeatherDetailsLarge';
 import WeatherDetailsSecondary from '../weatherDetailsSecondary/WeatherDetailsSecondary';
 
 export default function Main({
-    weather,
+    forecast,
 }) {
     return (
         <div className={styles.main}>
             <Input></Input>
-            <WeatherDetailsLarge weather={weather}></WeatherDetailsLarge>
-            <WeatherDetailsSecondary weather={weather}></WeatherDetailsSecondary>
+            <WeatherDetailsLarge forecast={forecast}></WeatherDetailsLarge>
+            <WeatherDetailsSecondary forecast={forecast}></WeatherDetailsSecondary>
         </div>
     )
 }

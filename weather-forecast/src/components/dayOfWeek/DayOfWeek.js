@@ -1,66 +1,21 @@
 import styles from './DayOfWeek.module.css';
+import styleDate from '../../helpers/styleDateForDayofWeek';
+import getDayName from '../../helpers/getDayName';
+import getIconLink from '../../helpers/getIconLink';
 
-export default function DayOfWeek() {
+export default function DayOfWeek({
+    data
+}) {
     return (
         <>
         <div className={styles.container}>
             <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
+                <p className={styles.day}>{getDayName(data.dt_txt)}</p>
+                <p className={styles.date}>{styleDate(data.dt_txt)}</p>
             </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
-        </div>
-        <div className={styles.container}>
-            <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
-            </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
-        </div>
-        <div className={styles.container}>
-            <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
-            </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
-        </div>
-        <div className={styles.container}>
-            <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
-            </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
-        </div>
-        <div className={styles.container}>
-            <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
-            </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
-        </div>
-        <div className={styles.container}>
-            <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
-            </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
-        </div>
-        <div className={styles.container}>
-            <div className={styles.dayAndDate}>
-                <p className={styles.day}>Tommorow</p>
-                <p className={styles.date}>12 Apr</p>
-            </div>
-            <span className={styles.degrees}>16&#176;</span>
-            <img className={styles.icon} src="/images/sun.png" alt="" />
+            <span className={styles.degrees}>{Math.round(Number(data.main.temp))}&#176;</span>
+            <img className={styles.icon} src={getIconLink(data.weather[0].icon)} alt="" />
         </div>
         </>
-
-        
     )
 }

@@ -10,7 +10,7 @@ export default function RightAside({
         <div className={styles.container} >
             <WeekToggle></WeekToggle>
             <HourlyForecast forecast={forecast}></HourlyForecast>
-            <WeeklyForecast></WeeklyForecast>
+            <WeeklyForecast forecast={forecast}></WeeklyForecast>
         </div>
     )
 }

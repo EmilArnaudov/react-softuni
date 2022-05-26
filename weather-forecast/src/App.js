@@ -31,10 +31,6 @@ function App() {
       fetchForecast(city)
         .then(forecast => {
           setForecast(forecast);
-
-          setInterval(() => {
-            setForecast(forecast);
-          }, 600000)
         })
     })
   }, [weather])
@@ -42,7 +38,7 @@ function App() {
   return (
     <div className="container">
         <Aside></Aside>
-        <Main weather={weather}></Main>
+        <Main forecast={forecast}></Main>
         <RightAside forecast={forecast}></RightAside>
     </div>
   );
