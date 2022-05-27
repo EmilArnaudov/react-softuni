@@ -6,12 +6,13 @@ import WeatherDetailsSecondary from '../weatherDetailsSecondary/WeatherDetailsSe
 export default function Main({
     forecast,
     searchCityHandler,
+    weather,
 }) {
     return (
         <div className={styles.main}>
             <Input searchCityHandler={searchCityHandler} ></Input>
-            <WeatherDetailsLarge forecast={forecast}></WeatherDetailsLarge>
-            <WeatherDetailsSecondary forecast={forecast}></WeatherDetailsSecondary>
+            <WeatherDetailsLarge weather={weather} forecast={forecast}></WeatherDetailsLarge>
+            <WeatherDetailsSecondary weather={weather} forecast={forecast}></WeatherDetailsSecondary>
         </div>
     )
 }

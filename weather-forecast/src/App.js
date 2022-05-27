@@ -14,6 +14,7 @@ import Saved from './components/saved/Saved';
 function App() {
   let [city, setCity] = useState('');
   let [forecast, setForecast] = useState({});
+  let [weather, setWeather] = useState({});
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (data) => {
@@ -22,9 +23,11 @@ function App() {
       fetchForecast(city)
         .then(forecast => {
           setForecast(forecast);
+          setWeather(forecast.list[0]);
 
           setInterval(() => {
             setForecast(forecast);
+            setWeather(forecast.list[0]);
           }, 600000)
         })
     })
@@ -46,6 +49,7 @@ function App() {
         fetchForecast(city)
         .then(forecast => {
           setForecast(forecast);
+          setWeather(forecast.list[0]);
         })
       } catch (error) {
         console.error(error);
@@ -53,16 +57,20 @@ function App() {
 
   }
 
+  function weekDayClickHandler(data) {
+    setWeather(data);
+  }
+
   return (
     <div className="container">
       <Router>
         <Aside></Aside>
         <Routes>
-          <Route path='/' element={<Main forecast={forecast} searchCityHandler={searchCityHandler}></Main>}></Route>
+          <Route path='/' element={<Main forecast={forecast} weather={weather} searchCityHandler={searchCityHandler}></Main>}></Route>
           <Route path='/calendar' element={<Calendar></Calendar>}></Route>
           <Route path='/saved' element={<Saved></Saved>}></Route>
         </Routes>
-        <RightAside forecast={forecast}></RightAside>
+        <RightAside weekDayClickHandler={weekDayClickHandler} forecast={forecast}></RightAside>
       </Router>
         
     </div>

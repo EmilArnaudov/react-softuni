@@ -6,6 +6,7 @@ import {useEffect, useState} from 'react';
 
 export default function WeatherDetailsLarge({
     forecast,
+    weather
 }) {
     let [time, setTime] = useState()
 
@@ -20,7 +21,9 @@ export default function WeatherDetailsLarge({
         return;
     }
 
-    let weather = forecast.list[0];
+    if (weather.dayName === undefined) {
+        weather.dayName = 'Today'
+    }
 
     let windSpeed = Math.round(Number(weather.wind.speed)) * 3.6
 
@@ -29,7 +32,7 @@ export default function WeatherDetailsLarge({
             <div className={styles.leftSide}>
                  <div className={styles.placeAndTime}>
                     <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{forecast.city.name}</span></span>
-                    <span className={styles.time}>Today {time}</span>
+                    <span className={styles.time}>{weather.dayName} {weather.dayName === 'Today' ? time : '12:00'}</span>
                 </div>
 
                 <div className={styles.degreesMain}>

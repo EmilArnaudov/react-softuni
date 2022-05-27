@@ -4,13 +4,13 @@ import HourlyForecast from '../hourlyForecast/HourlyForecast'
 import WeeklyForecast from '../weeklyForecast/WeeklyForecast'
 
 export default function RightAside({
-    forecast
+    forecast,
+    weekDayClickHandler
 }) {
     return (
         <div className={styles.container} >
             <WeekToggle></WeekToggle>
-            <HourlyForecast forecast={forecast}></HourlyForecast>
-            <WeeklyForecast forecast={forecast}></WeeklyForecast>
+            <WeeklyForecast weekDayClickHandler={weekDayClickHandler} forecast={forecast}></WeeklyForecast>
         </div>
     )
 }

@@ -3,7 +3,8 @@ import DayOfWeek from '../dayOfWeek/DayOfWeek';
 import filterDataForWeeklyForecast from '../../helpers/filterDataForWeeklyForecast';
 
 export default function WeeklyForecast({
-    forecast
+    forecast,
+    weekDayClickHandler
 }) {
 
     if (Object.keys(forecast).length === 0) {
@@ -14,7 +15,7 @@ export default function WeeklyForecast({
 
     return (
         <div className={styles.container}>
-        {filteredData.map(data => <DayOfWeek key={data.dt} data={data}></DayOfWeek>) }
+        {filteredData.map(data => <DayOfWeek forecast={forecast} weekDayClickHandler={weekDayClickHandler} key={data.dt} data={data}></DayOfWeek>) }
 
         </div>
     )

@@ -3,7 +3,8 @@ import getIconLink from '../../helpers/getIconLink';
 import getHourForHourlyForecast from '../../helpers/getHourForHourlyForecast';
 
 export default function HourlyForecast({
-    forecast
+    forecast,
+    day
 }) {
 
     if (Object.keys(forecast).length === 0) {
@@ -12,7 +13,7 @@ export default function HourlyForecast({
 
     return (
         <div className={styles.container}>
-            <p className={styles.selectedDay}>Today</p>
+            <p className={styles.selectedDay}>{day}</p>
             <div className={styles.hoursDiv}>
                 <div className={styles.hour}>
                     <p className={styles.timeOfDay}>{getHourForHourlyForecast(forecast.list[0].dt_txt)}</p>

@@ -2,6 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    transition: background-color 300ms ease-in;
+}
+
+.container:hover {
+    background-color: rgb(238, 238, 238);
 }
 
 .dayAndDate {

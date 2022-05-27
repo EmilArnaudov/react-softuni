@@ -2,14 +2,17 @@ import styles from './WeatherDetailsSecondary.module.css'
 import WindStrength from '../windStrength/WindStrength';
 
 export default function WeatherDetailsSecondary({
-    forecast
+    forecast,
+    weather
 }) {
 
     if (Object.keys(forecast).length === 0) {
         return;
     }
 
-    let weather = forecast.list[0];
+    if (Object.keys(weather).length === 0) {
+        return;
+    }
 
     let windSpeed = Math.round(Number(weather.wind.speed)) * 3.6
 
