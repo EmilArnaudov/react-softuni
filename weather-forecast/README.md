@@ -5,6 +5,7 @@
    - Current weather based on your location.
    - Forecast for next 5 days
    - Forecast for the rest of the selected day
+   - Update content every 10 minutes
    - You can change location using the search bar. All locations are from google maps API
 
 ## App Details
