@@ -2,12 +2,12 @@ import Geocode from 'react-geocode';
 import { GOOGLE_API_KEY } from '../constants/constants';
 
 export default async function getCityName(lat, lng) {
-    console.log('getting weather info');
     Geocode.setApiKey(GOOGLE_API_KEY);
     Geocode.setLocationType("ROOFTOP");
 
     let response = await Geocode.fromLatLng(lat, lng);
     const address = response.results[0].formatted_address;
+
     let city, state, country;
     for (let i = 0; i < response.results[0].address_components.length; i++) {
     for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
@@ -24,6 +24,9 @@ export default async function getCityName(lat, lng) {
         }
     }
     }
+
+    console.log(address);
+    console.log(city);
 
    return city;
 

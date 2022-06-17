@@ -7,10 +7,11 @@ export default function Main({
     forecast,
     searchCityHandler,
     weather,
+    showError
 }) {
     return (
         <div className={styles.main}>
-            <Input searchCityHandler={searchCityHandler} ></Input>
+            <Input showError={showError} searchCityHandler={searchCityHandler} ></Input>
             <WeatherDetailsLarge weather={weather} forecast={forecast}></WeatherDetailsLarge>
             <WeatherDetailsSecondary weather={weather} forecast={forecast}></WeatherDetailsSecondary>
         </div>

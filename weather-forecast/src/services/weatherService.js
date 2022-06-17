@@ -1,9 +1,14 @@
 export async function fetchForecast(city) {
-    const API = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&id=524901&appid=2fe354f147126727f33eb4258889d2de&mode=json&units=metric`
+    if (!city) {
+        throw Error;
+    }
 
-    let response = await fetch(API, {
+    let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&id=524901&appid=2fe354f147126727f33eb4258889d2de&mode=json&units=metric`
+    , {
         method: 'get',
     })
+
+
 
     let data = await response.json();
 
@@ -11,11 +16,16 @@ export async function fetchForecast(city) {
 }
 
 export async function fetchWeather(city) {
-    const API = `http://api.openweathermap.org/data/2.5/weather?q=${city}&id=524901&appid=2fe354f147126727f33eb4258889d2de&mode=json&units=metric`
 
-    let response = await fetch(API, {
+    if (!city) {
+        throw Error;
+    }
+
+    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&id=524901&appid=2fe354f147126727f33eb4258889d2de&mode=json&units=metric`
+    , {
         method: 'get',
     })
+
 
     let data = await response.json();
 

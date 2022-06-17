@@ -5,7 +5,8 @@ import { GOOGLE_API_KEY } from '../../constants/constants';
 import Autocomplete from "react-google-autocomplete";
 
 export default function Input({
-    searchCityHandler
+    searchCityHandler,
+    showError
 }) {
 
     let iconClasses = ['fa-solid', 'fa-magnifying-glass', styles.icon]
@@ -24,6 +25,11 @@ export default function Input({
                     searchCityHandler(lat, lng, city);
 
         }}/>
+
+        {showError &&         
+        <div className={styles.error}>
+            Sorry, no data available for selected location
+        </div>}
 
         </>
     )

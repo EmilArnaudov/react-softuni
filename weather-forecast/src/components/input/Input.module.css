@@ -9,3 +9,9 @@
     border: none;
     outline: none;
 }
+
+.error {
+    font-weight: 14px;
+    color: rgb(255, 78, 78);
+    padding: 4px 2px;
+}

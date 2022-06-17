@@ -31,7 +31,7 @@ export default function WeatherDetailsLarge({
         <div className={styles.container}>
             <div className={styles.leftSide}>
                  <div className={styles.placeAndTime}>
-                    <span className={styles.place}><i class="fa-solid fa-location-dot"></i><span>{forecast.city.name}</span></span>
+                    <span className={styles.place}><i className="fa-solid fa-location-dot"></i><span>{forecast.city.name}</span></span>
                     <span className={styles.time}>{weather.dayName} {weather.dayName === 'Today' ? time : '12:00'}</span>
                 </div>
 
@@ -40,9 +40,9 @@ export default function WeatherDetailsLarge({
                     <p className={styles.subheading}>{weather.weather[0].description}</p>
                 </div>
                 <div className={styles.secondaryDetails}>
-                    <span className={styles.pressure}><i class="fa-solid fa-wind"></i><span className={styles.value}>{weather.main.pressure}hpa</span></span>
-                    <span className={styles.humidity}><i class="fa-solid fa-droplet"></i><span className={styles.value}>{weather.main.humidity}%</span></span>
-                    <span className={styles.wind}><i class="fa-solid fa-wind"></i><span className={styles.value}>{windSpeed}km/h</span></span>
+                    <span className={styles.pressure}><i className="fa-solid fa-wind"></i><span className={styles.value}>{weather.main.pressure}hpa</span></span>
+                    <span className={styles.humidity}><i className="fa-solid fa-droplet"></i><span className={styles.value}>{weather.main.humidity}%</span></span>
+                    <span className={styles.wind}><i className="fa-solid fa-wind"></i><span className={styles.value}>{windSpeed}km/h</span></span>
                 </div>
             </div>
 
